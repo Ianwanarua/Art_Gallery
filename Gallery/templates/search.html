@@ -1,7 +1,6 @@
 {%extends 'base.html'%}
 {% block content %}
 <div class="container">
-
     <div class="row">
         {% if category%}
         <h3 class="text-center">Found {{ category|length }} images on {{message}}</h3>
@@ -11,9 +10,7 @@
         {% else %}
         <h3 class="text-center">Nothing for you here, kindly search again</h3>
         {% endif %}
-
     </div>
-
     <div class="row">
         {% if category %}
         {% for category in category %}
@@ -22,9 +19,7 @@
                 <img src="{{category.image.url}}" class="img-responsive" alt="{{image.name}}"
                     style="width:100%;width:100%">
                     <h5 class="text-center">{{img.image_name}}</h5>
-
             </a>
-
             <div class="modal fade" id="{{category.id}}" role="dialog">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
