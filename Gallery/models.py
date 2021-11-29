@@ -59,12 +59,12 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,category_cat_name):
-        image = cls.objects.filter(category_cat_name_icontains = category).all()
+        image = cls.objects.filter(category_cat_name_icontains = category)
         return image
     
     @classmethod
     def search_by_category(cls,search_term):
-        search_result = cls.objects.filter(category_cat_name_icontains = search_term)
+        search_result = cls.objects.filter(image_category__cat_name__icontains = search_term)
         return search_result
 
     @classmethod
