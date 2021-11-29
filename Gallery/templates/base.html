@@ -1,0 +1,85 @@
+{% load bootstrap3 %}
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    {% if title %}
+    <title>Fuego Galleries - {{title}}</title>
+    {% else %}
+    <title> Fuego Galleries </title>
+    {% endif %}
+    <link rel="shortcut icon" href="/static/img/fire.jpg" type="image/jpg">
+    {% block styles %}
+    {% bootstrap_css %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .navbar {
+            background-color: rgb(16, 16, 17);
+            border: none;
+            border-radius: 0%;
+        }
+    </style>
+    {% endblock %}
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse" role="navigation" style="padding: 0.5%;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="font-size: 24pt;"><a href="/"><img src="https://fontmeme.com/permalink/211128/16ca4d0a845585d0eaa7ed79e58efaef.png" alt="valline-wish-font" border="0"></a></a>
+            </div>
+            <div class="col-sm-4 col-md-4 navbar-right">
+                <div class="navbar-form" role="search" action="/">
+                    <form class="col-md-6" role="search" action="{% url 'search_category' %}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search image category" name="category">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i
+                                        class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class=" navbar-right">
+                <ul class="navbar-nav mr-auto" style="list-style: none">
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle location navbar-brand" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="text-decoration: none; color: gold;">
+                            Search Location
+                        </a>
+                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown">
+                            {% for location in location %}
+                            <p style="margin-left:2%"><a class="dropdown-item"
+                                    href="/location/{{location.location_name}}">{{location.location_name}}</a></p>
+                            {%endfor%}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    {% block content %} {%endblock%}
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+
+</html>

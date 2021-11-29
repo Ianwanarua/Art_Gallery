@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<div class="main"  style="background: url(/static/img/overlay.png),url(/static/img/bg2.jpg); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;" >
+<h1 class='text-center' style="font-style: italic;"><a href="/"><img src="https://fontmeme.com/permalink/211128/16ca4d0a845585d0eaa7ed79e58efaef.png" alt="valline-wish-font" border="0"></a></h1>
+<div class="container-fluid" >
+    
+    <hr/>
+
+    {% for img in images%}
+    <div class="col-lg-3">
+        <a href="#{{img.id}}" data-toggle="modal" data-target="#{{img.id}}">
+            <img src="{{img.image.url}}" class="img-responsive" alt="{{image.name}}" style="width:100%;width:100%">
+            <h5 class="text-center" style="text-decoration: none; color: gold; text-transform: uppercase;">{{img.image_name}}</h5>
+        </a>
+        <div class="modal fade" id="{{img.id}}" role="dialog">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">{{img.image_name}}</h4>
+                        <img src="{{img.image.url}}" class="img-responsive" alt="Image"
+                            style="width:100%;max-width:100%">
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-justify">{{img.description}}</p>
+                        <p class="text-left"><b>Location:</b> {{img.location}}</p>
+                        <p class="text-left"><b>Category:</b> {{img.category}}</p>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+                        <input id="{{img.id}}-url" class="form-control input-md responsive" type="text"
+                            value="{{img.image.url}}">
+                    </div>
+
+                    <button type="button" onclick="copyToClipboard();">Copy</button>
+
+                    <script>
+                        function copyToClipboard() {
+                            var copyText = document.getElementById("{{img.id}}-url");
+                            copyText.select();
+                            copyText.setSelectionRange(0, 99999)
+                            document.execCommand("copy");
+                            alert('url copied');
+                        }
+                    </script>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    {%endfor%}
+</div>
+</div>
+
+<footer class="footer">
+    <p class="text-center">© Fuego Galleries 2021. All Rights Reserved</p>
+</footer>
+{% endblock %}

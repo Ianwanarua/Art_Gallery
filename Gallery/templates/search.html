@@ -1,0 +1,70 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if category%}
+        <h3 class="text-center">Found {{ category|length }} images on {{message}}</h3>
+        <div class="container">
+            <hr />
+        </div>
+        {% else %}
+        <h3 class="text-center">Nothing for you here, kindly search again</h3>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+        {% if category %}
+        {% for category in category %}
+        <div class="col-md-3">
+            <a href="#{{category.id}}" data-toggle="modal" data-target="#{{category.id}}">
+                <img src="{{category.image.url}}" class="img-responsive" alt="{{image.name}}"
+                    style="width:100%;width:100%">
+                    <h5 class="text-center">{{img.image_name}}</h5>
+
+            </a>
+
+            <div class="modal fade" id="{{category.id}}" role="dialog">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{category.image_name}}</h4>
+                            <img src="{{category.image.url}}" class="img-responsive" alt="Image"
+                                style="width:100%;max-width:100%">
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-justify">{{category.description}}</p>
+                            <p class="text-left"><b>Location:</b> {{category.location}}</p>
+                            <p class="text-left"><b>Category:</b> {{category.category}}</p>
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+                            <input id="{{category.id}}-url" class="form-control input-md responsive" type="text"
+                                value="{{category.image.url}}">
+                        </div>
+                        <button type="button" onclick="copyToClipboard();">Copy</button>
+
+                        <script>
+                            function copyToClipboard() {
+                                var copyText = document.getElementById("{{img.id}}-url");
+                                copyText.select();
+                                copyText.setSelectionRange(0, 99999)
+                                document.execCommand("copy");
+                                alert('url copied');
+                            }
+                        </script>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
