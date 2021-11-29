@@ -39,7 +39,6 @@
                                 value="{{category.image.url}}">
                         </div>
                         <button type="button" onclick="copyToClipboard();">Copy</button>
-
                         <script>
                             function copyToClipboard() {
                                 var copyText = document.getElementById("{{img.id}}-url");
@@ -56,7 +55,6 @@
 
                 </div>
             </div>
-
         </div>
         {% endfor %}
         {% endif %}
