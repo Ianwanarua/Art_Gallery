@@ -2,6 +2,7 @@
 
 {% block content %}
 {{block.super}}
+
 <div class="main" style="background: url(/static/img/overlay.png), url(/static/img/bg2.jpg); background-repeat: no-repeat; background-size:cover;" >
 <div class="row">
     {% if image%}
@@ -40,7 +41,6 @@
                             value="{{img.image.url}}">
                     </div>
                     <button type="button" onclick="copyToClipboard();">Copy</button>
-
                     <script>
                         function copyToClipboard() {
                             var copyText = document.getElementById("{{img.id}}-url");
