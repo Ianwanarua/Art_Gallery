@@ -22,7 +22,3 @@ footer {
     height: 60px;
     width: 100%;
 }
-#layer {
-    position: absolute ; /* Sit on top of the page content */
-    background-color: rgba(214, 212, 212, 0.5); /* Black background with opacity */
-  }
