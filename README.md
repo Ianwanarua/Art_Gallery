@@ -19,3 +19,13 @@ To view the site [Click here.]()
 * A User can browse photos based on the location taken.
 * User is able to view different photos that interest them.
 * A user is able to see a modal after they click on an image, then can see the image description and also copy the image link.
+
+## Prerequisites
+
+For this system to work on your pc you need the following; 
+
+1. Python3.8
+2. Django
+3. Pip
+4. Virtual Environment(virtual)
+5. A text editor (Vscode)
