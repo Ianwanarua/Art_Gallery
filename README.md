@@ -11,7 +11,7 @@ This is a photo gallery web application made using Django where users can view p
 
 ## Live Link
 
-To view the site [Click here.]()
+To view the site [Click here.](https://fuegogaleries11.herokuapp.com/)
 
 ## User Story
 
