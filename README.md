@@ -57,3 +57,7 @@ To get the code..
 * Css
 * Javascript
 * Bootstrap3
+
+## Known Bugs
+
+There are no known bugs currently but if you come across one feel free to contact me.
