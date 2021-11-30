@@ -54,3 +54,6 @@ To get the code..
 * Django==3.2.9
 * Heroku
 * Html
+* Css
+* Javascript
+* Bootstrap3
